@@ -1,85 +1,93 @@
 import { motion } from "motion/react";
-import { Maximize2, Monitor, Layout, Shield, Home, Layers } from "lucide-react";
+import { Maximize2, Monitor, Layout, Shield, Home, Layers, Zap } from "lucide-react";
 
 const services = [
   {
-    title: "LED Smart Mirrors",
-    description: "Premium back-lit mirrors with touch sensors and anti-fog technology.",
+    title: "Aluminium Sections",
+    description: "High-grade aluminium doors, windows, and structural frames for modern strength.",
     icon: <Monitor className="w-6 h-6" />,
-    image: "https://images.unsplash.com/photo-1620626011761-9963d7b59a7a?auto=format&fit=crop&q=80&w=800",
-  },
-  {
-    title: "Glass Partitions",
-    description: "Frameless office and residential partitions for a modern, open feel.",
-    icon: <Layers className="w-6 h-6" />,
-    image: "https://images.unsplash.com/photo-1497366858543-96b93409a562?auto=format&fit=crop&q=80&w=800",
-  },
-  {
-    title: "Shower Enclosures",
-    description: "Customized toughened glass enclosures with premium hardware.",
-    icon: <Shield className="w-6 h-6" />,
-    image: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80&w=800",
-  },
-  {
-    title: "Mirror Walls",
-    description: "expansive architectural mirror installations that enhance depth.",
-    icon: <Maximize2 className="w-6 h-6" />,
-    image: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&q=80&w=800",
-  },
-  {
-    title: "Designer Windows",
-    description: "Double-glazed and laminated glass solutions for insulation.",
-    icon: <Home className="w-6 h-6" />,
-    image: "https://images.unsplash.com/photo-1503708928676-1cb796a0891e?auto=format&fit=crop&q=80&w=800",
+    image: "https://images.unsplash.com/photo-1503708928676-1cb796a0891e?auto=format&fit=crop&q=80&w=800"
   },
   {
     title: "Glass Wardrobes",
-    description: "Luxury lacquered and tinted glass shutters for premium wardrobes.",
+    description: "Elegant tinted and reflective glass wardrobes that redefine bedroom luxury.",
     icon: <Layout className="w-6 h-6" />,
-    image: "https://images.unsplash.com/photo-1595428774223-ef52624120d2?auto=format&fit=crop&q=80&w=800",
+    image: "https://images.unsplash.com/photo-1558211583-d21f610b4bfb?auto=format&fit=crop&q=80&w=800"
   },
+  {
+    title: "LED Smart Mirrors",
+    description: "Bespoke mirrors with integrated lighting and touch controls for modern spaces.",
+    icon: <Zap className="w-6 h-6" />,
+    image: "https://images.unsplash.com/photo-1620626011761-9963d7b59a7a?auto=format&fit=crop&q=80&w=800"
+  },
+  {
+    title: "Glass Stairs & Railings",
+    description: "Toughened safety glass steps and balustrades for a clean, floating look.",
+    icon: <Layers className="w-6 h-6" />,
+    image: "https://images.unsplash.com/photo-1541829070764-84a7d30dee6d?auto=format&fit=crop&q=80&w=800"
+  },
+  {
+    title: "Toughened Glass",
+    description: "High-impact safety glass for luxury partitions, shops, and exteriors.",
+    icon: <Shield className="w-6 h-6" />,
+    image: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=800"
+  },
+  {
+    title: "Interior Panels",
+    description: "Lacquered and decorative glass panels for walls and kitchen shutters.",
+    icon: <Maximize2 className="w-6 h-6" />,
+    image: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&q=80&w=800"
+  }
 ];
 
 export default function Services() {
   return (
-    <section id="collections" className="py-24 px-12 bg-transparent">
+    <section id="collections" className="section-padding">
       <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
-          <div className="max-w-2xl">
-            <span className="text-sky-400 font-mono text-sm tracking-widest mb-4 block uppercase font-bold">Solutions</span>
-            <h2 className="font-display text-4xl md:text-6xl font-bold mb-6 text-white leading-tight">
-              Our Curated <span className="text-sky-400 italic font-light">Collections</span>
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-20 gap-10">
+          <div className="max-w-4xl">
+            <div className="glass-pill mb-6 inline-block">
+              OUR COLLECTIONS
+            </div>
+            <h2 className="section-title">
+              Premium <span className="font-extrabold italic text-emerald-700/30">Products</span>
             </h2>
-            <p className="text-slate-400 text-lg leading-relaxed">
-              We specialize in high-end glass works that combine aesthetic appeal with structural integrity. Every piece is custom-designed to match your architectural vision.
+            <p className="text-slate-600 text-lg md:text-2xl font-semibold max-w-2xl leading-relaxed">
+              Beautifully crafted glass and aluminium solutions that make your home feel brighter and more luxurious.
             </p>
           </div>
-          <button className="text-sky-400 font-semibold flex items-center gap-2 hover:text-sky-300 transition-colors uppercase tracking-widest text-sm">
-            View All Services <Maximize2 size={16} />
-          </button>
+          <motion.button 
+            whileHover={{ x: 5, scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+            className="px-8 py-3 btn-gradient rounded-full font-bold flex items-center gap-3 uppercase tracking-widest text-[11px] shadow-lg shadow-emerald-100"
+          >
+            Full Catalog <Maximize2 size={16} />
+          </motion.button>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, i) => (
             <motion.div
               key={service.title}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.1 }}
+              transition={{ duration: 1, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
               viewport={{ once: true }}
-              className="group relative h-[450px] overflow-hidden rounded-sm glass-card border border-white/10"
+              className="group relative h-[450px] md:h-[550px] overflow-hidden rounded-[40px] shadow-xl hover:shadow-2xl transition-all duration-500"
             >
+              <div className="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors duration-700 z-10" />
               <img 
                 src={service.image} 
                 alt={service.title} 
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-30 group-hover:opacity-50"
+                className="w-full h-full object-cover transition-all duration-[2.5s] group-hover:scale-110 opacity-80 group-hover:opacity-100"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/40 to-transparent p-8 flex flex-col justify-end">
-                <div className="w-12 h-12 bg-sky-500/10 backdrop-blur-md rounded-sm flex items-center justify-center text-sky-400 mb-6 group-hover:bg-sky-500 group-hover:text-slate-900 transition-all border border-sky-500/20">
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent p-8 md:p-10 flex flex-col justify-end z-20">
+                <div className="w-14 h-14 bg-white/20 backdrop-blur-xl rounded-2xl flex items-center justify-center text-white mb-6 group-hover:scale-110 group-hover:bg-emerald-700 transition-all duration-700 border border-white/20">
                   {service.icon}
                 </div>
-                <h3 className="font-display text-2xl font-bold mb-3 text-white tracking-tight">{service.title}</h3>
-                <p className="text-slate-400 text-sm leading-relaxed">{service.description}</p>
+                <h3 className="font-sans text-2xl md:text-3xl font-bold mb-3 text-white tracking-tight">{service.title}</h3>
+                <p className="text-white/70 text-xs md:text-sm leading-relaxed font-medium mb-4">{service.description}</p>
+                <div className="w-0 group-hover:w-full h-[2px] bg-emerald-400 transition-all duration-700 origin-left" />
               </div>
             </motion.div>
           ))}

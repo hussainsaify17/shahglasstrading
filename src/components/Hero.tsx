@@ -3,103 +3,106 @@ import { ArrowRight, Shield } from "lucide-react";
 
 export default function Hero() {
   return (
-    <section id="home" className="relative min-h-screen flex items-center px-12 pt-20 overflow-hidden">
-      {/* Background decorations adjusted for Frosted theme */}
-      <div className="absolute top-0 right-0 w-[600px] h-full bg-sky-500/5 blur-[120px] pointer-events-none -z-10" />
+    <section id="home" className="relative min-h-[95vh] flex items-center px-12 md:px-24 pt-32 md:pt-40 pb-20 overflow-hidden">
+      {/* Video Background Placeholder */}
+      <div className="absolute inset-0 z-0 overflow-hidden opacity-10 pointer-events-none">
+        <img 
+          src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=2000" 
+          className="w-full h-full object-cover"
+          alt="Background"
+        />
+        <div className="absolute inset-0 bg-white/40 backdrop-blur-[2px]" />
+      </div>
 
-      <div className="relative z-10 w-full flex flex-col md:flex-row items-center justify-between gap-12">
+      <div className="relative z-10 w-full flex flex-col lg:flex-row items-center justify-between gap-24">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="w-full md:w-1/2"
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
+          className="w-full lg:w-1/2"
         >
-          <span className="text-sky-400 font-mono text-sm tracking-[0.3em] mb-4 block uppercase font-bold">Established 2012</span>
-          <h1 className="text-6xl md:text-8xl text-white font-extralight leading-none mb-8 tracking-tighter">
-            Shah Glass<br />
-            <span className="font-bold italic text-sky-400">Trading</span>
+          <div className="inline-block glass-pill mb-6 md:mb-10">
+            EST. 2012 • QUALITY ALUMINIUM & GLASS WORK
+          </div>
+          <h1 className="section-title">
+            Modern Glass & <br />
+            <span className="font-extrabold italic text-transparent bg-clip-text bg-gradient-to-r from-emerald-700 to-teal-800">Aluminium Fitting</span>
           </h1>
-          <p className="text-slate-400 text-lg md:text-xl max-w-md mb-12 leading-relaxed">
-            Superior architectural glass and mirror solutions in Narmadapuram. From custom trading to precision glass work, we redefine your space.
+          <p className="text-slate-600 text-lg md:text-xl max-w-xl mb-12 md:mb-16 leading-relaxed font-semibold">
+            Elevate your home with premium Aluminium sections, designer LED mirrors, and luxury glass wardrobes. Precision engineering, built for life.
           </p>
 
-          <div className="flex flex-col sm:flex-row items-center gap-6">
+          <div className="flex flex-col sm:flex-row items-center gap-6 md:gap-10">
             <motion.button
-              whileHover={{ scale: 1.05 }}
+              whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
-              className="px-8 py-4 bg-sky-500 text-slate-900 rounded-sm font-bold text-sm tracking-widest uppercase hover:bg-sky-400 transition-all flex items-center gap-2 group"
+              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+              className="w-full sm:w-auto px-10 py-5 btn-gradient rounded-full font-bold text-sm uppercase tracking-widest flex items-center justify-center gap-4 group shadow-2xl"
             >
-              Explore Collections
+              Start Your Project
               <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
             </motion.button>
             
-            <div className="glass-card p-4 rounded-sm flex items-center gap-4">
-              <div className="w-10 h-10 rounded-full bg-sky-500/20 flex items-center justify-center text-sky-400">
-                <Shield size={20} />
+            <motion.div 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.8 }}
+              className="liquid-glass p-1 px-6 rounded-full flex items-center gap-4 py-2.5"
+            >
+              <div className="w-9 h-9 rounded-full bg-emerald-50 flex items-center justify-center text-emerald-700">
+                <Shield size={18} />
               </div>
               <div>
-                <p className="text-white text-sm font-semibold">BIS Certified</p>
-                <p className="text-slate-500 text-xs">Highest Safety Standards</p>
+                <p className="text-black text-[10px] font-bold uppercase tracking-wider leading-none mb-1">BIS Certified</p>
+                <p className="text-black/40 text-[9px] uppercase tracking-normal font-medium">Safe & Strong</p>
               </div>
-            </div>
+            </motion.div>
           </div>
         </motion.div>
 
-        {/* Showcase Grid from Design HTML */}
+        {/* Dynamic Showcase */}
         <motion.div 
-          initial={{ opacity: 0, x: 50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="w-full md:w-1/2 grid grid-cols-2 gap-4 h-[500px]"
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
+          className="w-full lg:w-1/2 grid grid-cols-2 gap-6 md:gap-8 h-[600px] md:h-[700px] relative items-center"
         >
-          <div className="glass-card rounded-2xl p-6 flex flex-col justify-end relative overflow-hidden group">
-            <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent opacity-60"></div>
+          <motion.div 
+            animate={{ y: [0, -20, 0] }}
+            transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+            className="liquid-glass rounded-[40px] md:rounded-[60px] p-6 md:p-8 flex flex-col justify-end relative overflow-hidden group h-[90%] shadow-2xl"
+          >
+            <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent z-10 opacity-60"></div>
             <img 
               src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&q=80&w=800" 
-              className="absolute inset-0 w-full h-full object-cover -z-10 opacity-40 group-hover:scale-110 transition-transform duration-700" 
-              alt="Toughened Glass"
+              className="absolute inset-0 w-full h-full object-cover grayscale group-hover:scale-110 group-hover:grayscale-0 transition-all duration-[2s] opacity-30 group-hover:opacity-60" 
+              alt="Architectural Glass"
             />
-            <div className="relative z-10">
-              <h3 className="text-white font-bold">Toughened Glass</h3>
-              <p className="text-slate-400 text-xs mt-1">Impact resistant architectural glazing.</p>
+            <div className="relative z-20">
+              <div className="w-10 h-10 bg-emerald-50 rounded-full flex items-center justify-center mb-4 shadow-sm border border-emerald-100">
+                <div className="w-0 h-0 border-t-[5px] border-t-transparent border-l-[8px] border-l-emerald-700 border-b-[5px] border-b-transparent ml-1" />
+              </div>
+              <h3 className="text-slate-900 font-extrabold tracking-tight text-xl md:text-2xl mb-1">Modern Office</h3>
+              <p className="text-emerald-700/60 text-[10px] uppercase font-bold tracking-widest">View Concept</p>
             </div>
-          </div>
-          <div className="glass-card rounded-2xl p-6 flex flex-col justify-end mt-12 relative overflow-hidden group">
-            <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent opacity-60"></div>
+          </motion.div>
+
+          <motion.div 
+            animate={{ y: [0, 20, 0] }}
+            transition={{ duration: 8, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+            className="liquid-glass rounded-[40px] md:rounded-[60px] p-6 md:p-8 flex flex-col justify-end mt-12 md:mt-24 relative overflow-hidden group h-[90%] shadow-2xl"
+          >
+            <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent z-10 opacity-60"></div>
             <img 
               src="https://images.unsplash.com/photo-1620626011761-9963d7b59a7a?auto=format&fit=crop&q=80&w=800" 
-              className="absolute inset-0 w-full h-full object-cover -z-10 opacity-40 group-hover:scale-110 transition-transform duration-700" 
-              alt="Decorative Tint"
+              className="absolute inset-0 w-full h-full object-cover grayscale group-hover:scale-110 group-hover:grayscale-0 transition-all duration-[2s] opacity-30 group-hover:opacity-60" 
+              alt="Premium Interiors"
             />
-            <div className="relative z-10">
-              <h3 className="text-white font-bold">Decorative Tint</h3>
-              <p className="text-slate-400 text-xs mt-1">Custom patterns and dichroic finishes.</p>
+            <div className="relative z-20">
+              <h3 className="text-black font-extrabold tracking-tight text-xl md:text-2xl mb-1">Luxury Homes</h3>
+              <p className="text-black/40 text-[10px] uppercase font-bold tracking-widest">Portfolio</p>
             </div>
-          </div>
-          <div className="glass-card rounded-2xl p-6 flex flex-col justify-end -mt-12 relative overflow-hidden group">
-            <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent opacity-60"></div>
-            <img 
-              src="https://images.unsplash.com/photo-1503708928676-1cb796a0891e?auto=format&fit=crop&q=80&w=800" 
-              className="absolute inset-0 w-full h-full object-cover -z-10 opacity-40 group-hover:scale-110 transition-transform duration-700" 
-              alt="Energy Efficient"
-            />
-            <div className="relative z-10">
-              <h3 className="text-white font-bold">Energy Efficient</h3>
-              <p className="text-slate-400 text-xs mt-1">Double glazed insulated units.</p>
-            </div>
-          </div>
-          <div className="glass-card rounded-2xl p-6 flex flex-col justify-end relative overflow-hidden group">
-            <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent opacity-60"></div>
-            <img 
-              src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80&w=800" 
-              className="absolute inset-0 w-full h-full object-cover -z-10 opacity-40 group-hover:scale-110 transition-transform duration-700" 
-              alt="Privacy Tech"
-            />
-            <div className="relative z-10">
-              <h3 className="text-white font-bold">Privacy Tech</h3>
-              <p className="text-slate-400 text-xs mt-1">Switchable smart glass solutions.</p>
-            </div>
-          </div>
+          </motion.div>
         </motion.div>
       </div>
     </section>

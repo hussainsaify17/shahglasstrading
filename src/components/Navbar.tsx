@@ -14,16 +14,14 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 h-20 flex items-center justify-between px-12 glass-panel border-b border-white/10">
+    <nav className="fixed top-6 md:top-12 left-1/2 -translate-x-1/2 w-[92%] max-w-6xl z-50 h-14 flex items-center justify-between px-6 md:px-10 liquid-glass rounded-full border border-black/5 backdrop-blur-3xl shadow-[0_20px_50px_-12px_rgba(0,0,0,0.05)]">
       <motion.div 
         initial={{ opacity: 0, x: -20 }}
         animate={{ opacity: 1, x: 0 }}
-        className="flex items-center gap-2"
+        className="flex items-center gap-3"
       >
-        <div className="w-8 h-8 bg-sky-500 rounded-sm rotate-45 flex items-center justify-center">
-          <div className="w-4 h-4 bg-slate-900 rounded-sm"></div>
-        </div>
-        <span className="text-white font-bold text-xl tracking-tighter uppercase">Shah<span className="font-light text-sky-400">Glass</span></span>
+        <div className="w-6 h-6 rounded-lg bg-emerald-700 flex items-center justify-center font-bold text-white text-[10px]">S</div>
+        <span className="text-black font-bold text-xs tracking-tight uppercase">Shah Glass</span>
       </motion.div>
 
       {/* Desktop Nav */}
@@ -35,44 +33,49 @@ export default function Navbar() {
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: i * 0.1 }}
-            className="nav-link"
+            className="nav-link font-bold text-[11px]"
           >
             {link.name}
           </motion.a>
         ))}
-        <motion.button
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          className="px-6 py-2 bg-sky-500 text-slate-900 text-sm font-bold uppercase tracking-widest rounded-sm hover:bg-sky-400 transition-all"
-        >
-          Inquiry
-        </motion.button>
       </div>
 
-      {/* Mobile Toggle */}
-      <button className="md:hidden text-white" onClick={() => setIsOpen(!isOpen)}>
-        {isOpen ? <X size={24} /> : <Menu size={24} />}
-      </button>
+      <div className="flex items-center gap-4">
+        <motion.button
+          whileHover={{ scale: 1.05, y: -1 }}
+          whileTap={{ scale: 0.95 }}
+          className="hidden md:block px-8 py-2.5 btn-gradient text-[10px] font-bold uppercase tracking-widest rounded-full transition-all"
+        >
+          Contact Expert
+        </motion.button>
+
+        <button 
+          className="md:hidden text-black/40 hover:text-black transition-colors"
+          onClick={() => setIsOpen(!isOpen)}
+        >
+          {isOpen ? <X size={20} /> : <Menu size={20} />}
+        </button>
+      </div>
 
       {/* Mobile Menu */}
       {isOpen && (
         <motion.div 
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="md:hidden absolute top-20 left-0 right-0 glass-panel border-b border-white/10 p-6 flex flex-col gap-4 z-40"
+          initial={{ opacity: 0, scale: 0.95, y: -20 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          className="md:hidden absolute top-20 left-0 right-0 liquid-glass rounded-[40px] p-10 flex flex-col gap-8 z-40 border border-black/5 shadow-2xl"
         >
           {navLinks.map((link) => (
             <a
               key={link.name}
               href={link.href}
               onClick={() => setIsOpen(false)}
-              className="nav-link text-white text-lg"
+              className="nav-link text-black text-xl tracking-[0.4em] text-center"
             >
               {link.name}
             </a>
           ))}
-          <button className="px-6 py-3 bg-sky-500 text-slate-900 text-sm font-bold uppercase tracking-widest rounded-sm">
-            Inquiry
+          <button className="px-6 py-5 bg-[#18181b] text-white text-[10px] font-black uppercase tracking-widest rounded-full">
+            The Relay
           </button>
         </motion.div>
       )}

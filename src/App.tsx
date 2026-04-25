@@ -6,6 +6,7 @@
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import Services from "./components/Services";
+import Gallery from "./components/Gallery";
 import About from "./components/About";
 import Testimonials from "./components/Testimonials";
 import Contact from "./components/Contact";
@@ -21,10 +22,12 @@ export default function App() {
   });
 
   return (
-    <div className="relative selection:bg-accent selection:text-slate-900 min-h-screen mesh-gradient flex flex-col">
+    <div className="relative selection:bg-black/5 min-h-screen flex flex-col pt-0">
+      <div className="liquid-atmosphere" />
+      
       {/* Custom Scroll Progress Bar */}
       <motion.div
-        className="fixed top-0 left-0 right-0 h-1 bg-accent z-[60] origin-left"
+        className="fixed top-0 left-0 right-0 h-[2px] bg-black/10 z-[60] origin-left"
         style={{ scaleX }}
       />
 
@@ -33,16 +36,13 @@ export default function App() {
       <main className="flex-grow">
         <Hero />
         <Services />
+        <Gallery />
         <About />
         <Testimonials />
         <Contact />
       </main>
 
       <Footer />
-      
-      {/* Background decorations adjusted for Frosted theme */}
-      <div className="fixed top-1/4 -left-20 w-96 h-96 bg-accent/10 rounded-full blur-[120px] pointer-events-none -z-10" />
-      <div className="fixed bottom-1/4 -right-20 w-96 h-96 bg-sky-500/10 rounded-full blur-[120px] pointer-events-none -z-10" />
     </div>
   );
 }
