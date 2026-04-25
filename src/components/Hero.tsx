@@ -19,12 +19,12 @@ export default function Hero() {
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
-          className="w-full lg:w-1/2"
+          className="w-full lg:w-1/2 overflow-visible"
         >
           <div className="inline-block glass-pill mb-6 md:mb-10">
             EST. 2012 • QUALITY ALUMINIUM & GLASS WORK
           </div>
-          <h1 className="section-title">
+          <h1 className="section-title leading-[1.1] pb-2">
             Modern Glass & <br />
             <span className="font-extrabold italic text-transparent bg-clip-text bg-gradient-to-r from-emerald-700 to-teal-800">Aluminium Fitting</span>
           </h1>

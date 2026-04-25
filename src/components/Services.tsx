@@ -59,6 +59,7 @@ export default function Services() {
           <motion.button 
             whileHover={{ x: 5, scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
+            onClick={() => document.getElementById('gallery')?.scrollIntoView({ behavior: 'smooth' })}
             className="px-8 py-3 btn-gradient rounded-full font-bold flex items-center gap-3 uppercase tracking-widest text-[11px] shadow-lg shadow-emerald-100"
           >
             Full Catalog <Maximize2 size={16} />

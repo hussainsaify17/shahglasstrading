@@ -44,6 +44,7 @@ export default function Navbar() {
         <motion.button
           whileHover={{ scale: 1.05, y: -1 }}
           whileTap={{ scale: 0.95 }}
+          onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
           className="hidden md:block px-8 py-2.5 btn-gradient text-[10px] font-bold uppercase tracking-widest rounded-full transition-all"
         >
           Contact Expert
@@ -74,8 +75,14 @@ export default function Navbar() {
               {link.name}
             </a>
           ))}
-          <button className="px-6 py-5 bg-[#18181b] text-white text-[10px] font-black uppercase tracking-widest rounded-full">
-            The Relay
+          <button 
+            onClick={() => {
+              setIsOpen(false);
+              document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+            }}
+            className="px-6 py-5 bg-emerald-700 text-white text-[10px] font-black uppercase tracking-widest rounded-full shadow-lg"
+          >
+            Contact Expert
           </button>
         </motion.div>
       )}
